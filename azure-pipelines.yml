@@ -24,6 +24,32 @@ jobs:
   - task: PowerShell@2
     displayName: PowerShell Script
     inputs:
-      targetType: inline
-      script: "$file = \"task-2.ps\"\n#Get-Content  \"$file\" -Raw\n#(Get-Content $file).length\n\n \n\n$i = 10\nfor($i=1 ; $i -le 12; $i++)\n{\n\n \n\n#Write-Host ($i)\n\n$i=$i+2\n\n \n\n$q = Get-Content $file | Select -Index ($i - 1 )\n\n \n\nWrite-Output ($q)\n\n\n}"
+      targetType: 'inline'
+      script: |
+        $file = "task-2.ps"
+        #Get-Content  "$file" -Raw
+        #(Get-Content $file).length
+        
+         
+        
+        $i = 12
+        for($i=1 ; $i -le 12; $i++)
+        {
+        
+         
+        
+        #Write-Host ($i)
+        
+        $i=$i+2
+        
+         
+        
+        $q = Get-Content $file | Select -Index ($i - 1 )
+        
+         
+        
+        Write-Output ($q)
+        
+        
+        }
 ...
