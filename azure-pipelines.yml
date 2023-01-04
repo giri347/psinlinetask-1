@@ -5,9 +5,11 @@
 
 resources:
   repositories:
-  - repository: self
+  - repository: psinlinetask-1
     type: git
-    ref: refs/heads/main
+
+trigger:
+- main   
 jobs:
 - job: Job_1
   displayName: Agent job 1
