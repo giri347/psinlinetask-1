@@ -6,7 +6,10 @@
 resources:
   repositories:
   - repository: psinlinetask-1
-    type: git
+    type: github
+    endpoint: giri347
+    name: giri347/psinlinetask-1
+    
 
 trigger:
 - main   
