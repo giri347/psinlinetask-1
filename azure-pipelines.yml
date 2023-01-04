@@ -1,0 +1,24 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/main
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-latest
+  steps:
+  - checkout: self
+    
+  - task: PowerShell@2
+    displayName: PowerShell Script
+    inputs:
+      targetType: inline
+      script: "$file = \"task-2.ps\"\n#Get-Content  \"$file\" -Raw\n#(Get-Content $file).length\n\n \n\n$i = 10\nfor($i=1 ; $i -le 10; $i++)\n{\n\n \n\n#Write-Host ($i)\n\n$i=$i+2\n\n \n\n$q = Get-Content $file | Select -Index ($i - 1 )\n\n \n\nWrite-Output ($q)\n\n\n}"
+...
